@@ -1,27 +1,87 @@
 # mStatistics
 
-`mStatistics` is a Python library designed for statistical analysis, combinatorics, and random number generation. It provides a comprehensive suite of tools for data analysis, mathematical operations, and probability calculations.
+`mStatistics` is a Python library for statistical analysis, combinatorics, and random number generation. It provides tools to streamline data analysis and computation.
 
 ## Features
 
-- **Descriptive Statistics**:
-  - Calculate mean, median, mode, variance, standard deviation, and more.
-  - Evaluate skewness, kurtosis, and moments.
-- **Data Analysis**:
-  - Check data symmetry and kurtosis types.
-  - Detailed descriptions for symmetry and kurtosis.
+- **Statistical Analysis**:
+  - Calculate mean, variance, skewness, kurtosis, and more.
+  - Evaluate data symmetry and kurtosis types.
 - **Frequency Analysis**:
-  - Track event occurrences and calculate relative frequencies.
+  - Track events and calculate relative frequencies.
 - **Combinatorics**:
-  - Compute permutations, arrangements, and combinations.
+  - Compute permutations, combinations, and arrangements.
 - **Random Number Generation**:
-  - Generate pseudo-random numbers with custom ranges and steps.
+  - Generate random numbers within a custom range.
 
 ## Installation
 
-Clone the repository and install dependencies:
+Clone the repository and install the package:
 
 ```bash
 git clone https://github.com/estevamgd/mstatistics.git
 cd mstatistics
+pip install .
 ```
+
+## Usage
+
+### Statistical Analysis
+
+```python
+from mstatistics import MStats
+
+data = [1, 2, 3, 4, 5]
+stats = MStats(data)
+
+print("Mean:", stats.mean())
+print("Variance:", stats.variance())
+```
+
+### Frequency Analysis
+```python
+from mstatistics import MFreqrel
+
+tracker = MFreqrel(sdict={}, event="event1", n=100)
+tracker.update_event_count("event1", 10)
+print("Relative Frequency of event1:", tracker.relative_frequency("event1"))
+```
+
+### Combinatorics
+```python
+from mstatistics import MCombanal
+
+sequence = [1, 2, 3]
+comb = MCombanal(sequence)
+
+print("Permutations:", comb.permutation())
+print("Combinations (2):", comb.combination(2))
+
+```
+
+### Random Number Generation
+
+```python
+from mstatistics import MRand
+
+random_gen = MRand(start=1, end=10, step=1)
+print("Random Number:", random_gen.generate())
+```
+
+## Project Structure
+```bash
+mstatistics/
+├── analysis.py         # Statistical analysis tools
+├── freq_utils.py       # Frequency analysis tools
+├── math_utils.py       # Mathematical utilities
+├── random_utils.py     # Random number generation
+└── __init__.py         # Module initialization
+```
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+
+Thank you for using `mStatistics`! 🚀
